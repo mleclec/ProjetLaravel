@@ -11,5 +11,5 @@
 		<br />
 		{{ Form::submit('Envoyer'); }}
 	{{ Form::close() }}
-
+        <?php echo HTML::link('inscription', 'Si vous n etes pas inscrit, inscrivez-vous...'); ?>
 @stop 
