@@ -39,3 +39,8 @@ Route::post('connexion', array (
                 'uses' => 'ConnectionController@submitConnection',
                 'as' => 'connection.submit'
         ));
+
+Route::get('profile', array(
+                'uses' => 'ProfileController@showProfile',
+                'as' => 'profile.show'
+        ));
