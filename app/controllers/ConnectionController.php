@@ -17,5 +17,14 @@ class ConnectionController extends BaseController {
 	{
 		return View::make('connection');
 	}
+        
+        public function submitConnection()
+        {
+                $login = Input::get('login');
+                $password = Input::get('password');
+                
+                $users = Users::where('login', '=', $login)->get();
+                
+        }
 
 }
