@@ -2,7 +2,6 @@
 
 @section('content')
 	
-	{{"<p>exemple</p>"}}
-	{{"<a href='informations'>Configuration</a>"}}
+	{{"<p>corps de la page</p>"}}
 
 @stop
