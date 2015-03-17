@@ -16,6 +16,12 @@ Route::get('/', function()
 	return View::make('home');
 });
 
+	// Informations //
+
+Route::get('informations', function()
+{
+	return View::make('informations');
+});
 
 	// Inscription //
 
@@ -39,3 +45,4 @@ Route::post('connexion', array (
                 'uses' => 'ConnectionController@submitConnection',
                 'as' => 'connection.submit'
         ));
+

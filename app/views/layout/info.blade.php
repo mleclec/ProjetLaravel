@@ -2,13 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Accueil</title>
+		<title>Configuration</title>
 	</head>
 	<body>
 		<header>
 			@include('layout.header')
 		</header>
-
+		
 		<div>
 			@yield('content')
 		</div>
