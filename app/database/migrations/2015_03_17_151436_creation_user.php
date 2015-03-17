@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Creation extends Migration {
+class CreationUser extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -18,10 +18,8 @@ class Creation extends Migration {
                 $table->string('username', 128)->unique();
                 $table->string('email', 128)->unique();
                 $table->string('password', 64);
-                $table->timestamps();
                 $table->rememberToken();
             });
-           
 	}
 
 	/**

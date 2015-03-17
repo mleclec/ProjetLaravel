@@ -1,7 +1,7 @@
 <?php
 
 
-class UsersDatabaseSeeder extends Seeder {
+class UserDatabaseSeeder extends Seeder {
 
     public function run()
 	{
@@ -12,14 +12,14 @@ class UsersDatabaseSeeder extends Seeder {
                             'firstname' =>'Rémy',
                             'username' => 'rrichar1',
                             'email' => 'r.remy4@gmail.com',
-                            'password' => $password
-                            ));
+                            'password' => $password,
+                        ));
             $password = Hash::make('marine');
             User::create(array(
                             'firstname' =>'Marine',
                             'username' => 'marine',
                             'email' => 'marine@gmail.com',
-                            'password' => $password
-                            ));
+                            'password' => $password,
+                        ));
 	}
 }
