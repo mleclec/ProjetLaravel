@@ -21,22 +21,22 @@ Route::get('/', function()
 
 Route::get('inscription', array(
 		'uses' => 'HomeController@showRegistration',
-		'as'   => 'inscription.show'
+		'as'   => 'registration.show'
 	));
 
 Route::post('inscription', array(
 		'uses' => 'HomeController@submitRegistration',
-		'as'   => 'inscription.submit'
+		'as'   => 'registration.submit'
 	));
 
         // Connexion //
 
 Route::get('connexion', array (
-    'uses' => 'ConnectionController@showConnection',
-    'as' => 'connection.show'
-));
+                'uses' => 'ConnectionController@showConnection',
+                'as' => 'connection.show'
+        ));
 
-Route::get('connexion', array (
-    'uses' => 'ConnectionController@submitConnection',
-    'as' => 'connection.submit'
-));
+Route::post('connexion', array (
+                'uses' => 'ConnectionController@submitConnection',
+                'as' => 'connection.submit'
+        ));
