@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('hello');
+		return View::make('home');
 	}
 
 	public function showRegistration()
@@ -32,11 +32,11 @@ class HomeController extends BaseController {
 
 		// Création des règles //
 		$rules=array(
-						'firstname' => 'alpha|max:128',
-						'login' => 'alpha_num|min:4|unique:users,username',
-						'pwd' => 'alpha_num|min:8',
-						'confirmPwd' => 'same:pwd',
-						'email' => 'unique:users,email'
+						'firstname' => 'alpha|required|max:128',
+						'login' => 'alpha_num|required|min:4|unique:users,username',
+						'pwd' => 'alpha_num|required|min:8',
+						'confirmPwd' => 'alpha_num|required|same:pwd',
+						'email' => 'email|required|unique:users,email'
 					);
 
 		// Création du validateur //
@@ -46,8 +46,14 @@ class HomeController extends BaseController {
 		if ($validator->passes()) // everything is ok
 		{
 			// Ajout des données dans la base //
-			# code...
-			return View::make('hello');
+			$user=new User;
+			$user->firstname = $data['firstname'];
+			$user->username = $data['login'];
+			$user->email = $data['email'];
+			$user->password = Hash::make($data['pwd']);
+			$user->save();
+
+			return View::make('home');
 		}
 
 		else

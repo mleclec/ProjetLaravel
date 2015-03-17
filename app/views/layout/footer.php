@@ -1,0 +1,3 @@
+<p>
+	Mon footer
+</p>
