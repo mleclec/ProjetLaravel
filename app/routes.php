@@ -19,12 +19,12 @@ Route::get('/', function()
 
 	// Inscription //
 
-Route::get('contact', array(
-		'uses' => 'HomeController@showContactForm',
-		'as'   => 'formulaire.show'
+Route::get('inscription', array(
+		'uses' => 'HomeController@showRegistration',
+		'as'   => 'inscription.show'
 	));
 
-Route::post('contact', array(
-		'uses' => 'HomeController@submitContactForm',
-		'as'   => 'formulaire.submit'
+Route::post('inscription', array(
+		'uses' => 'HomeController@submitRegistration',
+		'as'   => 'inscription.submit'
 	));
