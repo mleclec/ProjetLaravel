@@ -15,3 +15,16 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+
+	// Inscription //
+
+Route::get('contact', array(
+		'uses' => 'HomeController@showContactForm',
+		'as'   => 'formulaire.show'
+	));
+
+Route::post('contact', array(
+		'uses' => 'HomeController@submitContactForm',
+		'as'   => 'formulaire.submit'
+	));
