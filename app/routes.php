@@ -21,10 +21,10 @@ Route::get('/', function()
 
 Route::get('inscription', array(
 		'uses' => 'HomeController@showRegistration',
-		'as'   => 'inscription.show'
+		'as'   => 'registration.show'
 	));
 
 Route::post('inscription', array(
 		'uses' => 'HomeController@submitRegistration',
-		'as'   => 'inscription.submit'
+		'as'   => 'registration.submit'
 	));
