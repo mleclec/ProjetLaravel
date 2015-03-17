@@ -1,5 +1,5 @@
 @extends('layout.regis')
 
 @section('content')
-    {{  $user }} 
+    Vous etes connecté en tant que {{  $user }} 
 @stop
