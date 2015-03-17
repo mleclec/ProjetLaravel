@@ -24,11 +24,10 @@ Route::get('inscription', array(
 		'as'   => 'registration.show'
 	));
 
-Route::post('inscription', array(
+Route::post('Accueil', array(
 		'uses' => 'HomeController@submitRegistration',
 		'as'   => 'registration.submit'
 	));
-
         // Connexion //
 
 Route::get('connexion', array (
