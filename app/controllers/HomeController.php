@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('hello');
+		return View::make('home');
 	}
 
 	public function showRegistration()
@@ -53,7 +53,7 @@ class HomeController extends BaseController {
 			$user->password = Hash::make($data['pwd']);
 			$user->save();
 
-			return View::make('hello');
+			return View::make('home');
 		}
 
 		else
