@@ -28,3 +28,15 @@ Route::post('inscription', array(
 		'uses' => 'HomeController@submitRegistration',
 		'as'   => 'inscription.submit'
 	));
+
+        // Connexion //
+
+Route::get('connexion', array (
+    'uses' => 'ConnectionController@showConnection',
+    'as' => 'connection.show'
+));
+
+Route::get('connexion', array (
+    'uses' => 'ConnectionController@submitConnection',
+    'as' => 'connection.submit'
+));
