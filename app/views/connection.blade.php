@@ -2,11 +2,11 @@
 
 @section('content')
 	{{ Form::open(array('route' => 'connection.submit')) }}
-		{{ Form::label('login', 'login :'); }}
-		{{ Form::text('login'); }}
+		{{ Form::label('username', 'username :'); }}
+		{{ Form::text('username'); }}
 		<br />
 		{{ Form::label('password' , 'mot de passe :'); }}
-		{{ Form::text('password'); }}
+		{{ Form::password('password'); }}
 		{{ $errors->first('login'); }} 
 		<br />
 		{{ Form::submit('Envoyer'); }}

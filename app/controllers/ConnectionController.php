@@ -20,11 +20,14 @@ class ConnectionController extends BaseController {
         
         public function submitConnection()
         {
-                $login = Input::get('login');
+                $login = Input::get('username');
                 $password = Input::get('password');
                 
-                $users = Users::where('login', '=', $login)->get();
-                
+                if (Auth::attempt(array('username' => $login, 'password' => $password))) {
+                    return View::make('hello'); 
+                }else{
+                    return View::make('connection');
+                }   
         }
 
 }
