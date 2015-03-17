@@ -13,9 +13,9 @@ class ProfileController extends BaseController {
 	|
 	*/
 
-	public function showProfile()
-	{            
-		return View::make('profile');
-	}
+	public function showProfile($user)
+        {
+            return View::make('profile', array('user' => $user));
+        }
         
 }

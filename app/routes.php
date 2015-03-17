@@ -40,7 +40,9 @@ Route::post('connexion', array (
                 'as' => 'connection.submit'
         ));
 
-Route::get('profile', array(
+/*Route::get('profile', array(
                 'uses' => 'ProfileController@showProfile',
                 'as' => 'profile.show'
         ));
+*/
+Route::get('profile/{user}', 'ProfileController@showProfile');

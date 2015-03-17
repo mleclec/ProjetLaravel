@@ -24,7 +24,8 @@ class ConnectionController extends BaseController {
                 $password = Input::get('password');
                 
                 if (Auth::attempt(array('username' => $login, 'password' => $password))) {
-                    return Redirect::to('profile');
+                    return Redirect::action('ProfileController@showProfile', array('user' => $login));
+                    //return View::make('profile', array('id' => $login));
                 }else{
                     return View::make('connection');
                 }   
