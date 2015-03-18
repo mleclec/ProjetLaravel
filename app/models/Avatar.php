@@ -1,15 +1,16 @@
 <?php
 
 class Avatar extends Eloquent {
-	/**
+            
+        /**
 	 * The database table used by the model.
 	 *
 	 * @var string
-	 */
-	protected $table = 'avartars';
+	 */    
+	protected $table = 'avatars';
         
-         public function users()
+        public function users()
         {
-            return $this->belongsTo('users');
+            return $this->belongsTo('Users');
         }
 }
