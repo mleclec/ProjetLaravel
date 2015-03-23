@@ -4,6 +4,7 @@
 | Application Routes
 |--------------------------------------------------------------------------
 */
+        // Accueil //
 
 Route::get('/', function()
 {
@@ -33,7 +34,15 @@ Route::post('connexion', array (
                 'as' => 'connection.submit'
         ));
 
+        // Profil //
+
 Route::get('profile/{user}', array(
                 'uses' => 'ProfileController@showProfile', 
                 'as' => 'profile.show'
         ));
+
+        // Recherches //
+Route::get('/search', function()
+{
+        return 'Ok';
+});
