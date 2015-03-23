@@ -46,7 +46,30 @@ Route::post('connexion', array (
                 'as' => 'connection.submit'
         ));
 
+        // Profile //
+
 Route::get('profile/{user}', array(
-                'uses' => 'ProfileController@showProfile', 
+               'uses' => 'ProfileController@showProfile', 
                 'as' => 'profile.show'
+        ));
+
+Route::get('profile/{user}/list', array(
+                'uses' => 'ProfileController@allAvatar',
+                'as' => 'profile.all'
+        ));
+
+
+Route::get('profile/{user}/addform', array(
+                'uses' => 'ProfileController@showAvatar',
+                'as' => 'profile.showAvatar'
+        ));
+
+Route::post('profile/{user}/addform', array(
+                'uses' => 'ProfileController@addAvatar',
+                'as' => 'profile.addAvatar'
+        ));
+
+Route::post('profile/{user}/list/delete', array(
+                'uses' => 'ProfileController@deleteAvatar',
+                'as' => 'profile.deleteAvatar'
         ));
