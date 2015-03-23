@@ -13,24 +13,24 @@ Route::get('/', function()
 
 	// Inscription //
 
-Route::get('inscription', array(
+Route::get('registration', array(
 		'uses' => 'HomeController@showRegistration',
 		'as'   => 'registration.show'
 	));
 
-Route::post('Accueil', array(
+Route::post('home', array(
 		'uses' => 'HomeController@submitRegistration',
 		'as'   => 'registration.submit'
 	));
 
         // Connexion //
 
-Route::get('connexion', array (
+Route::get('connection', array (
                 'uses' => 'ConnectionController@showConnection',
                 'as' => 'connection.show'
         ));
 
-Route::post('connexion', array (
+Route::post('connection', array (
                 'uses' => 'ConnectionController@submitConnection',
                 'as' => 'connection.submit'
         ));
@@ -44,11 +44,11 @@ Route::get('profile/{user}', array(
 
 Route::get('profile/{user}/list', array(
                 'uses' => 'ProfileController@allAvatar',
-                'as' => 'profile.all'
+                'as' => 'profile.allAvatar'
         ));
 
 
-Route::get('profile/{user}/addform', array(
+Route::get('profile/{user}/addAvatar', array(
                 'uses' => 'ProfileController@showAvatar',
                 'as' => 'profile.showAvatar'
         ));
@@ -58,7 +58,7 @@ Route::post('profile/{user}/addform', array(
                 'as' => 'profile.addAvatar'
         ));
 
-Route::post('profile/{user}/list', array(
+Route::post('profile/{user}/list/{id}', array(
                 'uses' => 'ProfileController@deleteAvatar',
                 'as' => 'profile.deleteAvatar'
         ));

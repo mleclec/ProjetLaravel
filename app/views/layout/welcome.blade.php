@@ -2,19 +2,30 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Accueil</title>
+		<title>Gravatar</title>
+                <link rel="stylesheet" href="css/bootstrap.css">
+                <script src="js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<header>
-			@include('layout.header')
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <a class="navbar-brand" href="#">Gravatar</a>
+                                </div>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li> {{ HTML::link('connection', 'Se connecter') }}</li>
+                                </ul>
+                            </div>
+                        </nav>
 		</header>
 
-		<div>
-			@yield('content')
-		</div>
+		<div class="jumbotron">
+                    <div class="container">
+                        <h1> Bienvenue sur GRAVATAR !!</h1>
+                        <p> Le gestionnaire d'avatar... </p>
+                    </div>
+                </div>
 
-		<footer>
-			@include('layout.footer')
-		</footer>
 	</body>
 </html>

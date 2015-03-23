@@ -1,41 +1,50 @@
-@extends('layout.regis')
+@extends('layout.master')
 
-@section('content')
-	{{
-		Form::open(array
-		('action'=> 'Controller@submitRegistration',
-	 	 'route'=> 'registration.submit',
-	 	 'files'=> 'false',
-	 	 'method'=>'POST')
-		)
-	}}
-
-	{{Form::label('firstname', 'Prénom');}}
-	{{Form::text('firstname')}}
-	{{"<br/>"}}
-
-	{{Form::label('login', 'Login');}}
-	{{Form::text('login')}}
-	{{"<br/>"}}
-
-	{{Form::label('pwd', 'Mot de passe');}}
-	{{Form::password('pwd')}}
-	{{"<br/>"}}
-
-	{{Form::label('confirmPwd', 'Confirmer le mot de passe');}}
-	{{Form::password('confirmPwd')}}
-	{{"<br/>"}}
-
-	{{Form::label('email', 'Adresse e-mail');}}
-	{{Form::email('email')}}
-	{{"<br/>"}}
-
-	{{Form::submit('Valider')}}
-
-	{{Form::close()}}
-
-	<?php echo HTML::link('connexion', 'Se connecter'); ?>
-
+@section('header')
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Gravatar</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li> {{ HTML::link('connection', 'Se connecter') }} </li>
+                </ul>
+            </div>
+        </nav>
 @stop
+@section('content')
+    <div class="row">
+        {{ Form::open(array(
+                        'action'=> 'Controller@submitRegistration',
+                        'route'=> 'registration.submit',
+                        'files'=> 'false',
+                        'method'=>'POST')) }}
+                        
+	
+            <div class="col-lg-offset-4 col-lg-2">{{Form::label('firstname', 'Prénom');}}</div>
+            <div class="col-lg-6">{{Form::text('firstname')}}</div>
+      </div>
+      <div class="row">
+            <div class="col-lg-offset-4 col-lg-2">{{Form::label('login', 'Nom d\'utilisateur');}}</div>
+            <div class="col-lg-6">{{Form::text('login')}}</div>
+      </div>
+      <div class="row">
+            <div class="col-lg-offset-4 col-lg-2">{{Form::label('pwd', 'Mot de passe');}}</div>
+            <div class="col-lg-6">{{Form::password('pwd')}}</div>
+      </div>
+      <div class="row">
+            <div class="col-lg-offset-4 col-lg-2"> {{Form::label('confirmPwd', 'Confirmer le mot de passe');}}</div>
+            <div class="col-lg-6">{{Form::password('confirmPwd')}}</div>
+      </div>
+      <div class="row">
+            <div class="col-lg-offset-4 col-lg-2">{{Form::label('email', 'Adresse e-mail');}}</div>
+            <div class="col-lg-6">{{Form::email('email')}}</div>
+      </div>
+     
+      <div class="row">
+            <div class="col-lg-offset-8 col-lg-4">{{ Form::submit('Valider'); }}</div>
+      </div>
+	{{ Form::close() }}
+@stop 
 
  

@@ -21,14 +21,14 @@ class ProfileController extends BaseController {
 
         public function showAvatar()
         {
-            return View::make('addform',array('user' => Auth::user()->username));
+            return View::make('addAvatar',array('user' => Auth::user()->username));
         }
 
         public function addAvatar()
         {
             $data = Input::all();
             $rules=array(
-                           'photo' => 'image|required|mimes:jpeg,png,jpg',
+                           'picture' => 'image|required|mimes:jpeg,png,jpg',
                            'email' => 'email|required'
         		);
 		// Création du validateur //
@@ -39,9 +39,9 @@ class ProfileController extends BaseController {
 		{
 			// Ajout des données dans la base et téléchargement de l'image//
                         $email = Input::get('email');
-                        $file = Input::file('photo');
+                        $file = Input::file('picture');
                         $fileName = $file->getClientOriginalName();
-                        Input::file('photo')->move('pictures', $fileName);
+                        Input::file('picture')->move('pictures', $fileName);
 
                         $avatar = new Avatar();
                         $avatar->photo = 'pictures/'.$fileName;
@@ -57,11 +57,10 @@ class ProfileController extends BaseController {
         
         public function deleteAvatar($user,$avatarID)
         {   
-            echo $user;
+            $user = Input::get('user');
             $avatarID = Input::get('id');
             
             $avatar = Avatar::find($avatarID);
-            
             $avatar->delete();
             
             return Redirect::action('ProfileController@allAvatar', array('user' => Auth::user()->username));
