@@ -22,6 +22,7 @@ Route::post('Accueil', array(
 		'uses' => 'HomeController@submitRegistration',
 		'as'   => 'registration.submit'
 	));
+
         // Connexion //
 
 Route::get('connexion', array (
@@ -34,13 +35,12 @@ Route::post('connexion', array (
                 'as' => 'connection.submit'
         ));
 
-        // Profil //
+        // Profile //
 
 Route::get('profile/{user}', array(
                 'uses' => 'ProfileController@showProfile', 
                 'as' => 'profile.show'
         ));
-
 
 Route::get('profile/{user}/list', array(
                 'uses' => 'ProfileController@allAvatar',
@@ -63,7 +63,11 @@ Route::post('profile/{user}/list', array(
         ));
 
         // Recherches //
-Route::get('/search', function()
+Route::post('/search', function()
 {
+        // Récupération des données //
+        Input::post('email');
+        Input::post('size');
+
         return 'Ok';
 });
