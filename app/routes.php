@@ -47,6 +47,7 @@ Route::get('profile/{user}/list', array(
                 'as' => 'profile.all'
         ));
 
+
 Route::get('profile/{user}/addform', array(
                 'uses' => 'ProfileController@showAvatar',
                 'as' => 'profile.showAvatar'
