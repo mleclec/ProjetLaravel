@@ -34,6 +34,8 @@
 
 	{{Form::close()}}
 
+	<?php echo HTML::link('connexion', 'Se connecter'); ?>
+
 @stop
 
  
