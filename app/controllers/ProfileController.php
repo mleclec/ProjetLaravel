@@ -12,11 +12,6 @@ class ProfileController extends BaseController {
 	|	Route::get('profile', 'ProfileController@showProfile');
 	|
 	*/
-
-	public function showProfile()
-        {
-            return View::make('profile', array('user' => Auth::user()->username));
-        }
         
         public function allAvatar()
         {
@@ -60,16 +55,16 @@ class ProfileController extends BaseController {
 		}
         }
         
-        public function deleteAvatar()
+        public function deleteAvatar($user,$avatarID)
         {   
-            
+            echo $user;
             $avatarID = Input::get('id');
             
             $avatar = Avatar::find($avatarID);
             
             $avatar->delete();
             
-             return Redirect::action('ProfileController@allAvatar', array('user' => Auth::user()->username));
+            return Redirect::action('ProfileController@allAvatar', array('user' => Auth::user()->username));
         }
         
 }

@@ -35,11 +35,6 @@ Route::post('connexion', array (
 
         // Profile //
 
-Route::get('profile/{user}', array(
-               'uses' => 'ProfileController@showProfile', 
-                'as' => 'profile.show'
-        ));
-
 Route::get('profile/{user}/list', array(
                 'uses' => 'ProfileController@allAvatar',
                 'as' => 'profile.all'
