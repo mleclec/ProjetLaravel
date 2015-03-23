@@ -63,12 +63,25 @@ Route::post('profile/{user}/list', array(
                 'as' => 'profile.deleteAvatar'
         ));
 
-        // Recherches //
+        // Research //
 Route::post('/search', function()
 {
-        // Récupération des données //
-        Input::post('email');
-        Input::post('size');
+        // Récupération of datas //
+       # $datae = Hash::make(Input::get('email'));
+        $datae = Input::get('email');
+        $datas = Input::get('size');
 
-        return 'Ok';
+        $avatars = Avatar::where('email','=', $datae)->first();
+        #var_dump($avatars);
+        if ($avatars->photo != null) // there is an avatar for the adress entered
+        {
+                // Display the avatar //
+                echo($avatars->photo);
+                echo "<img src='public/'$avatars->photo' alt=image'/>";
+        }
+
+        else // there is no avatar for the adress entered
+        {
+                echo "Nous n'avons pas trouvé d'avatars";
+        }
 });
