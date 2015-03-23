@@ -10,7 +10,16 @@
     @foreach($avatars as $a)
         {{ HTML::image($a->photo) }}<br /> 
         {{ $a->email }} <br />
-        {{ HTML::link('profile/'.$user.'/list/delete', 'supprimer') }} <br />
+        
+        {{ Form::open(array(
+                    'action'=> 'ProfileController@deleteAvatar',
+                    'method'=>'POST')) }}
+            
+            {{ Form::hidden('id', $a->id) }}
+            {{ Form::hidden('user', $user) }}
+            {{ Form::submit('supprimer') }}
+            
+        {{ Form::close() }}
     @endforeach
 
     

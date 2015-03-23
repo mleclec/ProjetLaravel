@@ -59,4 +59,17 @@ class ProfileController extends BaseController {
 			return Redirect::action('ProfileController@addAvatar', array('user' => Auth::user()->username));
 		}
         }
+        
+        public function deleteAvatar()
+        {   
+            
+            $avatarID = Input::get('id');
+            
+            $avatar = Avatar::find($avatarID);
+            
+            $avatar->delete();
+            
+             return Redirect::action('ProfileController@allAvatar', array('user' => Auth::user()->username));
+        }
+        
 }

@@ -69,7 +69,7 @@ Route::post('profile/{user}/addform', array(
                 'as' => 'profile.addAvatar'
         ));
 
-Route::post('profile/{user}/list/delete', array(
+Route::post('profile/{user}/list', array(
                 'uses' => 'ProfileController@deleteAvatar',
                 'as' => 'profile.deleteAvatar'
         ));
