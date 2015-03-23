@@ -41,6 +41,27 @@ Route::get('profile/{user}', array(
                 'as' => 'profile.show'
         ));
 
+
+Route::get('profile/{user}/list', array(
+                'uses' => 'ProfileController@allAvatar',
+                'as' => 'profile.all'
+        ));
+
+Route::get('profile/{user}/addform', array(
+                'uses' => 'ProfileController@showAvatar',
+                'as' => 'profile.showAvatar'
+        ));
+
+Route::post('profile/{user}/addform', array(
+                'uses' => 'ProfileController@addAvatar',
+                'as' => 'profile.addAvatar'
+        ));
+
+Route::post('profile/{user}/list', array(
+                'uses' => 'ProfileController@deleteAvatar',
+                'as' => 'profile.deleteAvatar'
+        ));
+
         // Recherches //
 Route::get('/search', function()
 {

@@ -11,6 +11,6 @@ class Avatar extends Eloquent {
         
         public function users()
         {
-            return $this->belongsTo('Users');
+            return $this->belongsTo('User');
         }
 }

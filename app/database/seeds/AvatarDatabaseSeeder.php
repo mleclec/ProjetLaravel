@@ -18,5 +18,12 @@ class AvatarDatabaseSeeder extends Seeder {
                             'photo' => 'pictures/img2.jpg',
                             'user_id' => 1
                         ));
+            
+            Avatar::create(array(
+                            'email' => 'mar@gmail.com',
+                            'photo' => 'pictures/img2.jpg',
+                            'user_id' => 2
+                        ));
+            
 	}
 }
