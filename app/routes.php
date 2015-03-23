@@ -4,6 +4,7 @@
 | Application Routes
 |--------------------------------------------------------------------------
 */
+        // Accueil //
 
 Route::get('/', function()
 {
@@ -55,3 +56,9 @@ Route::post('profile/{user}/list', array(
                 'uses' => 'ProfileController@deleteAvatar',
                 'as' => 'profile.deleteAvatar'
         ));
+
+        // Recherches //
+Route::get('/search', function()
+{
+        return 'Ok';
+});
