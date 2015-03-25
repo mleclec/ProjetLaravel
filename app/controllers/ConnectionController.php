@@ -25,9 +25,8 @@ class ConnectionController extends BaseController {
                 
                 if (Auth::attempt(array('username' => $login, 'password' => $password))) {
                     return Redirect::action('ProfileController@allAvatar', array('user' => $login));
-                    //return View::make('profile', array('id' => $login));
                 }else{
-                    return View::make('connection');
+                    return View::make('connection')->with('errorUser', 'Nom d\'utilisateur ou mot de passe incorrect');
                 }   
         }
 }

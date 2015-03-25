@@ -39,8 +39,20 @@ class HomeController extends BaseController {
 						'email' => 'email|required|unique:users,email'
 					);
 
+                $messages=array(
+                                'alpha' => 'l\'attribut doit contenir que des lettres.',
+                                'required' => 'l\'attribut est obligatoire.',
+                                'max' => 'Ne doit pas dépasser 128 caractères.',
+                                'alph_num' => 'l\'attribut doit contenir des lettres et/ou des chiffres.',
+                                'login.min' => 'Doit dépasser 4 caractères.',
+                                'pwd.min' => 'Doit dépasser 8 caractères.',    
+                                'same' => 'Mot de passe de confirmation doit être identique au Mot du passe.',
+                                'email' => 'Inscrire une adresse valide',
+                                'login.unique' => 'Cet utilisateur est déjà inscrit.',
+                                'email.unique' => 'Cet email est déjà enregistré.'
+                                );
 		// Création du validateur //
-		$validator=Validator::make($data,$rules);
+		$validator=Validator::make($data,$rules,$messages);
 
 		// Validation des données //
 		if ($validator->passes()) // everything is ok
@@ -59,7 +71,7 @@ class HomeController extends BaseController {
 		else
 		{
 			// there is a problem!!
-			return View::make('registration');
+			return View::make('registration')->withErrors($validator);
 		}
 	}
 }

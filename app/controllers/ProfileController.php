@@ -31,8 +31,16 @@ class ProfileController extends BaseController {
                            'picture' => 'image|required|mimes:jpeg,png,jpg',
                            'email' => 'email|required'
         		);
+            
+            $messages=array(
+                            'image' => 'Cet attribut doit être une image. Extension valide : JPEG,PNG,JPG.',
+                            'required' => 'Cet attribut est obligatoire.',
+                            'mimes' => 'Extension non valide. Extension valide : JPEG,PNG,JPG.',
+                            'email' => 'Inscrire une adresse valide.'
+                            );
+            
 		// Création du validateur //
-		$validator=Validator::make($data,$rules);
+		$validator=Validator::make($data,$rules,$messages);
 
 		// Validation des données //
 		if ($validator->passes()) // everything is ok
@@ -51,7 +59,7 @@ class ProfileController extends BaseController {
 
                         return Redirect::action('ProfileController@allAvatar', array('user' => Auth::user()->username));
 		}else{
-			return Redirect::action('ProfileController@addAvatar', array('user' => Auth::user()->username));
+			return View::make('addAvatar', array('user' => Auth::user()->username))->withErrors($validator);
 		}
         }
         
@@ -61,6 +69,7 @@ class ProfileController extends BaseController {
             $avatarID = Input::get('id');
             
             $avatar = Avatar::find($avatarID);
+            File::delete($avatar->photo);
             $avatar->delete();
             
             return Redirect::action('ProfileController@allAvatar', array('user' => Auth::user()->username));
