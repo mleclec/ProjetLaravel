@@ -75,7 +75,20 @@ Route::post('/search', function()
         if ($avatars->photo != null) // there is an avatar for the adress entered
         {
                 // Display the avatar with the size selected //
-                echo(HTML::image($avatars->photo, 'Votre avatar'));
+                switch ($datas) 
+                {
+                    case 'size1':
+                        echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '100', 'height' => '100')));
+                        break;
+
+                    case 'size2':
+                        echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '200', 'height' => '200')));
+                        break;
+
+                    case 'size3':
+                        echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '300', 'height' => '300')));
+                        break;
+                }
         }
 
         else // there is no avatar for the adress entered
