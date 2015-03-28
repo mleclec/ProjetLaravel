@@ -76,8 +76,7 @@ Route::post('/search', function()
         if ($avatars->photo != null) // there is an avatar for the adress entered
         {
                 // Display the avatar //
-                echo($avatars->photo);
-                echo "<img src='public/'$avatars->photo' alt=image'/>";
+                echo(HTML::image($avatars->photo, 'Votre avatar'));
         }
 
         else // there is no avatar for the adress entered
