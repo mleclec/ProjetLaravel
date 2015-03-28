@@ -66,16 +66,15 @@ Route::post('profile/{user}/list/{id}', array(
         // Research //
 Route::post('/search', function()
 {
-        // Récupération of datas //
+        // Recovery of datas //
        # $datae = Hash::make(Input::get('email'));
         $datae = Input::get('email');
         $datas = Input::get('size');
 
         $avatars = Avatar::where('email','=', $datae)->first();
-        #var_dump($avatars);
         if ($avatars->photo != null) // there is an avatar for the adress entered
         {
-                // Display the avatar //
+                // Display the avatar with the size selected //
                 echo(HTML::image($avatars->photo, 'Votre avatar'));
         }
 
@@ -83,4 +82,16 @@ Route::post('/search', function()
         {
                 echo "Nous n'avons pas trouvé d'avatars";
         }
+});
+
+        // Information //
+Route::get('information',function()
+{
+    return View::make('information');
+});
+
+        // Research //
+Route::get('search',function()
+{
+    return Redirect::to('../../ProjetLaravelJQuery/accueil.php');
 });
