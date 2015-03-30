@@ -7,6 +7,7 @@
                 <a class="navbar-brand" href="{{ url('connection'); }}">Gravatar</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
+                {{-- Create redirection link --}}
                 <li> {{ HTML::link('connection', 'Se connecter'); }} </li>
             </ul>
         </div>
@@ -14,6 +15,7 @@
 @stop
 
 @section('content')
+    {{-- Registration form --}}
     {{ Form::open(array(
                         'action'=> 'Controller@submitRegistration',
                         'route'=> 'registration.submit',
@@ -28,7 +30,7 @@
             <div class="form-group">
                 {{ Form::text('firstname', '', array('class' => 'form-control')); }}
                 <label class="control-label" for="login"> 
-                    {{ $errors->first('firstname'); }} 
+                    {{ $errors->first('firstname'); }} {{-- error handling of firstname --}}
                 </label>
             </div>
         </div>
@@ -38,7 +40,9 @@
         <div class="col-lg-2">
             <div class="form-group">
                 {{ Form::text('login', '', array('class' => 'form-control')); }}
-                <label class="control-label" for="login">{{ $errors->first('login'); }}</label>
+                <label class="control-label" for="login">
+                    {{ $errors->first('login'); }} {{-- error handling of login --}}
+                </label>
             </div>
         </div>
     </div>
@@ -47,7 +51,9 @@
         <div class="col-lg-2">
             <div class="form-group">
                 {{ Form::password('pwd', ['class' => 'form-control']); }}
-                <label class="control-label" for="pwd">{{ $errors->first('pwd'); }}</label>
+                <label class="control-label" for="pwd">
+                    {{ $errors->first('pwd'); }} {{-- error handling of password --}}
+                </label>
             </div>
         </div>
     </div>
@@ -56,7 +62,9 @@
         <div class="col-lg-2">
             <div class="form-group">
                 {{ Form::password('confirmPwd', ['class' => 'form-control']); }}
-                <label class="control-label" for="confirmPwd">{{ $errors->first('confirmPwd'); }}</label>
+                <label class="control-label" for="confirmPwd">
+                    {{ $errors->first('confirmPwd'); }} {{-- error handling of confirmation password --}}
+                </label>
             </div>
         </div>
     </div>
@@ -65,7 +73,9 @@
         <div class="col-lg-2">
             <div class="form-group">
                 {{ Form::email('email', '', ['class' => 'form-control']); }}
-                <label class="control-label" for="email">{{ $errors->first('email'); }} </label>
+                <label class="control-label" for="email">
+                    {{ $errors->first('email'); }} {{-- error handling of email --}} 
+                </label>
             </div>
         </div>
     </div>

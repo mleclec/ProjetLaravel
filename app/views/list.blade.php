@@ -8,6 +8,7 @@
                     <p class="navbar-text">Connecté en tant que {{ $user }}</p>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
+                    {{-- Create redirection link --}}
                     <li> {{ HTML::link('profile/'.$user.'/list', 'Mes Avatars'); }} </li>
                     <li> {{ HTML::link('profile/'.$user.'/addAvatar', 'Ajouter'); }} </li>
                     <li> {{ HTML::link('connection', 'Se déconnecter'); }} </li>
@@ -18,12 +19,14 @@
 
 @section('content')
     <div class="row">
+        {{-- loop for display avatars --}}
         @foreach($avatars as $a)
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    {{ HTML::image($a->photo, 'image de l\'avatar', array('width' => 242,'height' => 200)); }}
+                    {{ HTML::image($a->link, 'image de l\'avatar', array('width' => 242,'height' => 200)); }}
                     <div class="caption">
                         <h3 style="text-align: center">{{ $a->email }}</h3>
+                        {{-- Hidden form for delete avatar with id and user --}}
                         {{ Form::open(array(
                                     'action'=> 'ProfileController@deleteAvatar',
                                     'method'=>'POST',

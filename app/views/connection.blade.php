@@ -7,12 +7,14 @@
                 <a class="navbar-brand" href="{{ url('/'); }}">Gravatar</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
+                {{-- Create redirection link --}}
                 <li> {{ HTML::link('registration', 'Si vous n\'etes pas inscrit, inscrivez-vous...'); }} </li>
             </ul>
         </div>
     </nav>
 @stop
 @section('content')
+    {{-- connection Form : username and password --}}
     {{ Form::open(array('route' => 'connection.submit','onsubmit' => 'valider()')); }}
     <div class="row">
         <div class="col-lg-offset-4 col-lg-2">

@@ -17,20 +17,22 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
+                // Home page of the application
 		return View::make('home');
 	}
 
 	public function showRegistration()
 	{
+                // Redirect to registration page 
 		return View::make('registration');
 	}
 
 	public function submitRegistration()
 	{
-		// Récupération des données saisies //
+		// Recovery of data seizures
 		$data=Input::all();
 
-		// Création des règles //
+		// Create rules
 		$rules=array(
 						'firstname' => 'alpha|required|max:128',
 						'login' => 'alpha_num|required|min:4|unique:users,username',
@@ -39,6 +41,7 @@ class HomeController extends BaseController {
 						'email' => 'email|required|unique:users,email'
 					);
 
+                // Message error 
                 $messages=array(
                                 'alpha' => 'l\'attribut doit contenir que des lettres.',
                                 'required' => 'l\'attribut est obligatoire.',
@@ -51,13 +54,13 @@ class HomeController extends BaseController {
                                 'login.unique' => 'Cet utilisateur est déjà inscrit.',
                                 'email.unique' => 'Cet email est déjà enregistré.'
                                 );
-		// Création du validateur //
+		// Create validator 
 		$validator=Validator::make($data,$rules,$messages);
 
-		// Validation des données //
+		// Validate datas 
 		if ($validator->passes()) // everything is ok
 		{
-			// Ajout des données dans la base //
+			// Add data in database column USERS //
 			$user=new User;
 			$user->firstname = $data['firstname'];
 			$user->username = $data['login'];

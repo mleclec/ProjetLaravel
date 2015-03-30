@@ -16,7 +16,7 @@
 				</tr>
 				<tr>
 					<th>Formats images supportés</th>
-					<td>JPEG, PNG</td>
+					<td>JPEG, PNG, JPG</td>
 				</tr>
 			</table>
 

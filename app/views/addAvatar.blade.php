@@ -8,6 +8,7 @@
                 <p class="navbar-text">Connecté en tant que {{ $user }}</p>
             </div>
             <ul class="nav navbar-nav navbar-right">
+                {{-- Create redirection link --}}
                 <li> {{ HTML::link('profile/'.$user.'/list', 'Mes Avatars'); }} </li>
                 <li> {{ HTML::link('profile/'.$user.'/addAvatar', 'Ajouter'); }} </li>
                 <li> {{ HTML::link('connection', 'Se déconnecter'); }} </li>
@@ -17,6 +18,7 @@
 @stop
 
 @section('content')  
+    {{-- addAvatar Form : file and email --}}
     {{ Form::open(array(
                 'action'=> 'ProfileController@addAvatar',
                 'route'=> 'profile.addAvatar',
@@ -24,7 +26,7 @@
                 'method'=>'POST')); }}
     <div class="row">
         <div class="col-lg-offset-4 col-lg-2">
-            {{ Form::label('photo', 'Image de l\'avatar'); }}
+            {{ Form::label('picture', 'Image de l\'avatar'); }}
         </div>
         <div class="col-lg-2">
             <div class="form-group">

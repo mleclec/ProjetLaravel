@@ -4,14 +4,14 @@
 | Application Routes
 |--------------------------------------------------------------------------
 */
-        // Accueil //
+        // Homepage //
 
 Route::get('/', function()
 {
 	return View::make('home');
 });
 
-	// Inscription //
+	// Registration //
 
 Route::get('registration', array(
 		'uses' => 'HomeController@showRegistration',
@@ -23,7 +23,7 @@ Route::post('home', array(
 		'as'   => 'registration.submit'
 	));
 
-        // Connexion //
+        // Connection //
 
 Route::get('connection', array (
                 'uses' => 'ConnectionController@showConnection',
@@ -42,11 +42,14 @@ Route::get('profile/{user}', array(
                 'as' => 'profile.show'
         ));
 
+        // show Profile with all Avatar displaying //
+
 Route::get('profile/{user}/list', array(
                 'uses' => 'ProfileController@allAvatar',
                 'as' => 'profile.allAvatar'
         ));
 
+        // Form add avatar // 
 
 Route::get('profile/{user}/addAvatar', array(
                 'uses' => 'ProfileController@showAvatar',
@@ -58,16 +61,18 @@ Route::post('profile/{user}/addform', array(
                 'as' => 'profile.addAvatar'
         ));
 
+        // Delete Avatar //
+
 Route::post('profile/{user}/list/{id}', array(
                 'uses' => 'ProfileController@deleteAvatar',
                 'as' => 'profile.deleteAvatar'
         ));
 
         // Research //
+
 Route::post('/search', function()
 {
         // Recovery of datas //
-       # $datae = Hash::make(Input::get('email'));
         $datae = Input::get('email');
         $datas = Input::get('size');
 
