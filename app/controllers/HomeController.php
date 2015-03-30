@@ -65,7 +65,7 @@ class HomeController extends BaseController {
 			$user->password = Hash::make($data['pwd']);
 			$user->save();
 
-			return View::make('home');
+			return View::make('connection');
 		}
 
 		else
