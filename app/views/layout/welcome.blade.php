@@ -14,10 +14,6 @@
                                 <div class="navbar-header">
                                     <a class="navbar-brand" href="{{ url('/'); }}">Gravatar</a>
                                 </div>
-                                <ul class="nav navbar-nav navbar-left">
-                                    <li> {{ HTML::link('search', 'Rechercher'); }}</li>
-                                    <li> {{ HTML::link('information', 'Information'); }} </li>
-                                </ul>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li> {{ HTML::link('connection', 'Se connecter'); }}</li>
                                 </ul>

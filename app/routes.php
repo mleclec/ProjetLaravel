@@ -72,32 +72,35 @@ Route::post('/search', function()
         $datas = Input::get('size');
 
         $avatars = Avatar::where('email','=', $datae)->first();
-        if ($avatars->photo != null) // there is an avatar for the adress entered
+        if ($avatars != null) 
         {
-                // Display the avatar with the size selected //
-                switch ($datas) 
-                {
-                    case 'size0':
-                        echo(HTML::image($avatars->photo, 'Votre avatar'));
-                        break;
+            if ($avatars->photo != null) // there is an avatar for the adress entered
+            {
+                    // Display the avatar with the size selected //
+                    switch ($datas) 
+                    {
+                        case 'size0':
+                            echo(HTML::image($avatars->photo, 'Votre avatar'));
+                            break;
 
-                    case 'size1':
-                        echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '100', 'height' => '100')));
-                        break;
+                        case 'size1':
+                            echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '100', 'height' => '100')));
+                            break;
 
-                    case 'size2':
-                        echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '200', 'height' => '200')));
-                        break;
+                        case 'size2':
+                            echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '200', 'height' => '200')));
+                            break;
 
-                    case 'size3':
-                        echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '300', 'height' => '300')));
-                        break;
-                }
+                        case 'size3':
+                            echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '300', 'height' => '300')));
+                            break;
+                    }
+            }
         }
 
         else // there is no avatar for the adress entered
         {
-                echo "Nous n'avons pas trouvé d'avatars";
+            echo "Il n'y a pas d'avatars.";
         }
 });
 
@@ -105,10 +108,4 @@ Route::post('/search', function()
 Route::get('information',function()
 {
     return View::make('information');
-});
-
-        // Research //
-Route::get('search',function()
-{
-    return Redirect::to('../../ProjetLaravelJQuery/index.php');
 });
