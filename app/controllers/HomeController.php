@@ -41,19 +41,20 @@ class HomeController extends BaseController {
 						'email' => 'email|required|unique:users,email'
 					);
 
-                // Message error 
-                $messages=array(
-                                'alpha' => 'l\'attribut doit contenir que des lettres.',
-                                'required' => 'l\'attribut est obligatoire.',
-                                'max' => 'Ne doit pas dépasser 128 caractères.',
-                                'alph_num' => 'l\'attribut doit contenir des lettres et/ou des chiffres.',
-                                'login.min' => 'Doit dépasser 4 caractères.',
-                                'pwd.min' => 'Doit dépasser 8 caractères.',    
-                                'same' => 'Mot de passe de confirmation doit être identique au Mot du passe.',
-                                'email' => 'Inscrire une adresse valide',
-                                'login.unique' => 'Cet utilisateur est déjà inscrit.',
-                                'email.unique' => 'Cet email est déjà enregistré.'
-                                );
+        // Message error 
+        $messages=array(
+                        'alpha' => 'l\'attribut doit contenir que des lettres.',
+                        'required' => 'l\'attribut est obligatoire.',
+                        'max' => 'Ne doit pas dépasser 128 caractères.',
+                        'alph_num' => 'l\'attribut doit contenir des lettres et/ou des chiffres.',
+                        'login.min' => 'Doit dépasser 4 caractères.',
+                        'pwd.min' => 'Doit dépasser 8 caractères.',    
+                        'same' => 'Mot de passe de confirmation doit être identique au Mot du passe.',
+                        'email' => 'Inscrire une adresse valide',
+                        'login.unique' => 'Cet utilisateur est déjà inscrit.',
+                        'email.unique' => 'Cet email est déjà enregistré.'
+                        );
+        
 		// Create validator 
 		$validator=Validator::make($data,$rules,$messages);
 

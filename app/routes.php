@@ -16,12 +16,12 @@ Route::get('/', function()
 Route::get('registration', array(
 		'uses' => 'HomeController@showRegistration',
 		'as'   => 'registration.show'
-	));
+	    ));
 
 Route::post('home', array(
 		'uses' => 'HomeController@submitRegistration',
 		'as'   => 'registration.submit'
-	));
+	    ));
 
         // Connection //
 
@@ -79,27 +79,27 @@ Route::post('/search', function()
         $avatars = Avatar::where('email_MD5','=', $datae)->first();
         if ($avatars != null) 
         {
-            if ($avatars->photo != null) // there is an avatar for the adress entered
+            if ($avatars->link != null) // there is an avatar for the adress entered
             {
-                    // Display the avatar with the size selected //
-                    switch ($datas) 
-                    {
-                        case 'size0':
-                            echo(HTML::image($avatars->photo, 'Votre avatar'));
-                            break;
+                // Display the avatar with the size selected //
+                switch ($datas) 
+                {
+                    case 'size0':
+                        echo(HTML::image($avatars->link, 'Votre avatar'));
+                        break;
 
-                        case 'size1':
-                            echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '100', 'height' => '100')));
-                            break;
+                    case 'size1':
+                        echo(HTML::image($avatars->link, 'Votre avatar', array('width' => '100', 'height' => '100')));
+                        break;
 
-                        case 'size2':
-                            echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '200', 'height' => '200')));
-                            break;
+                    case 'size2':
+                        echo(HTML::image($avatars->link, 'Votre avatar', array('width' => '200', 'height' => '200')));
+                        break;
 
-                        case 'size3':
-                            echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '300', 'height' => '300')));
-                            break;
-                    }
+                    case 'size3':
+                        echo(HTML::image($avatars->link, 'Votre avatar', array('width' => '300', 'height' => '300')));
+                        break;
+                }
             }
         }
 

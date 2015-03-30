@@ -12,14 +12,15 @@ class CreationUser extends Migration {
 	 */
 	public function up()
 	{
-            Schema::create('users', function(Blueprint $table) {
-                $table->increments('id');
-                $table->string('firstname', 128);
-                $table->string('username', 128)->unique();
-                $table->string('email', 128)->unique();
-                $table->string('password', 64);
-                $table->rememberToken();
-            });
+        Schema::create('users', function(Blueprint $table) 
+        {
+            $table->increments('id');
+            $table->string('firstname', 128);
+            $table->string('username', 128)->unique();
+            $table->string('email', 128)->unique();
+            $table->string('password', 64);
+            $table->rememberToken();
+        });
 	}
 
 	/**
