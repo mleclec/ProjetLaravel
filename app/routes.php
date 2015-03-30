@@ -77,6 +77,10 @@ Route::post('/search', function()
                 // Display the avatar with the size selected //
                 switch ($datas) 
                 {
+                    case 'size0':
+                        echo(HTML::image($avatars->photo, 'Votre avatar'));
+                        break;
+
                     case 'size1':
                         echo(HTML::image($avatars->photo, 'Votre avatar', array('width' => '100', 'height' => '100')));
                         break;
@@ -106,5 +110,5 @@ Route::get('information',function()
         // Research //
 Route::get('search',function()
 {
-    return Redirect::to('../../ProjetLaravelJQuery/accueil.php');
+    return Redirect::to('../../ProjetLaravelJQuery/index.php');
 });
