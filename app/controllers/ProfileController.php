@@ -47,6 +47,7 @@ class ProfileController extends BaseController {
 		{
 			// Ajout des données dans la base et téléchargement de l'image//
                         $email = Input::get('email');
+                        $emailC = md5(Input::get('email'));
                         $file = Input::file('picture');
                         $fileName = $file->getClientOriginalName();
                         Input::file('picture')->move('pictures', $fileName);
@@ -54,6 +55,7 @@ class ProfileController extends BaseController {
                         $avatar = new Avatar();
                         $avatar->photo = 'pictures/'.$fileName;
                         $avatar->email = $email;
+                        $avatar->email_MD5 = $emailC;
                         $avatar->user_id = Auth::user()->id;
                         $avatar->save(); 
 
