@@ -71,7 +71,7 @@ Route::post('/search', function()
         $datae = Input::get('email');
         $datas = Input::get('size');
 
-        $avatars = Avatar::where('email','=', $datae)->first();
+        $avatars = Avatar::where('email_MD5','=', $datae)->first();
         if ($avatars != null) 
         {
             if ($avatars->photo != null) // there is an avatar for the adress entered

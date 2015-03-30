@@ -8,7 +8,7 @@
 				</tr>
 				<tr>
 					<th>Tailles d'avatar disponibles</th>
-					<td>100x100, 200x200, 300x300</td>
+					<td> 100x100, 200x200, 300x300</td>
 				</tr>
 				<tr>
 					<th>Taille d'avatar par défaut</th>
@@ -20,6 +20,6 @@
 				</tr>
 			</table>
 
-			{{ HTML::link('/', 'Retour'); }}
+			{{ HTML::link('./../../ProjetLaravelJQuery/', 'Retour'); }}
 		</div>
 @stop
